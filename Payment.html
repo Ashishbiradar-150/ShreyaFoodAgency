@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Methods</title>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="Payment.css">
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Select Payment Method</h2>
+        <div class="payment-option" onclick="showForm('card')">
+            <i class="fas fa-credit-card"></i>
+            <span>Cards</span>
+        </div>
+        <div class="payment-option" onclick="showForm('wallet')">
+            <i class="fas fa-wallet"></i>
+            <span>Wallets</span>
+        </div>
+        <div class="payment-option" onclick="showForm('upi')">
+            <i class="fas fa-qrcode"></i>
+            <span>UPI</span>
+        </div>
+        <div class="payment-option" onclick="showForm('cod')">
+            <i class="fas fa-truck"></i>
+            <span>Cash on Delivery</span>
+        </div>
+
+        <!-- Payment Forms -->
+        <div id="card-form" class="payment-form">
+            <h3>Enter Card Details</h3>
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Expiry Date" required>
+            <input type="text" placeholder="CVV" required>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+
+        <div id="wallet-form" class="payment-form">
+            <h3>Enter Wallet Details</h3>
+            <input type="text" placeholder="Wallet ID" required>
+            <input type="text" placeholder="OTP" required>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+
+        <div id="upi-form" class="payment-form">
+            <h3>Enter UPI Details</h3>
+            <input type="text" placeholder="UPI ID" required>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+
+        <div id="cod-form" class="payment-form">
+            <h3>Cash on Delivery Selected</h3>
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="Payment.js"></script>
+</body>
+</html>

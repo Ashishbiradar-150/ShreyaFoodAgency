@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000; /* Black main background */
+            color: #000000; /* Black text for white container */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Container for the About Us content */
+        .about-container {
+            max-width: 600px;
+            padding: 30px;
+            background-color: #ffffff; /* White curved background */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+            border-radius: 20px; /* Curved edges */
+            text-align: center;
+        }
+
+        /* Heading Styles */
+        h1 {
+            font-family: 'Montserrat', sans-serif; /* Strong and unique font */
+            font-size: 32px;
+            color: #006400; /* Dark green */
+            margin-bottom: 15px;
+            text-transform: uppercase; /* Uppercase for a bold look */
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif; /* Strong and unique font */
+            font-size: 24px;
+            color: #006400; /* Dark green */
+            margin-top: 20px;
+            text-transform: uppercase; /* Uppercase for a bold look */
+        }
+
+        /* Paragraph Styles */
+        p {
+            font-size: 14px;
+            color: #000000; /* Black text for white container */
+            margin-bottom: 15px;
+        }
+
+        /* Team Section Styles */
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid #006400; /* Dark green border */
+            margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+            font-family: 'Montserrat', sans-serif; /* Strong and unique font */
+            font-size: 16px;
+            color: #006400; /* Dark green */
+            margin: 5px 0;
+        }
+
+        .team-member p {
+            font-size: 12px;
+            color: #555555; /* Gray text */
+        }
+
+        /* Button Styles */
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #006400; /* Dark green */
+            color: #ffffff; /* White text */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #004d00; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- About Us Section -->
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p>Welcome to <strong>Shreya Food Agency</strong>, where we deliver the freshest produce directly from farmers to your doorstep. Healthy living made easy!</p>
+
+        <h2>Our Mission</h2>
+        <p>We aim to provide:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>Farm-fresh vegetables & fruits.</li>
+            <li>Farmer-to-customer service.</li>
+            <li>Doorstep delivery in minutes.</li>
+        </ul>
+
+        <h2>Our Team</h2>
+        <div class="team">
+            <div class="team-member">
+                <!--<img src="https://via.placeholder.com/80" alt="Team Member 1">-->
+                <h3>Biradar Ashish</h3>
+                <p>Founder</p>
+            </div>
+        
+            <div class="team-member">
+                <!--<img src="Main Page/man.jpeg" alt="Team Member 3">-->
+                <h3>Nimbalkar Sahil</h3>
+                <p>Co-Founder</p>
+            </div>
+        </div>
+
+        <a href="#" class="cta-button">Learn More</a>
+    </div>
+</body>
+</html>

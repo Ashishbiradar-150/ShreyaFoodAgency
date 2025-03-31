@@ -1,0 +1,137 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #000000;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container */
+.about-container {
+  max-width: 600px;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Headings */
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  color: #006400;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/* Text */
+p {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.mission-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.mission-list li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.mission-list li::before {
+  content: "•";
+  color: #006400;
+  position: absolute;
+  left: 0;
+}
+
+/* Team Section */
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.team-member {
+  text-align: center;
+  margin: 10px;
+  flex: 1 1 120px;
+}
+
+.team-member h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: #006400;
+  margin: 5px 0;
+}
+
+.team-member p {
+  font-size: 12px;
+  color: #555555;
+}
+
+/* Button */
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #006400;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #004d00;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-container {
+      padding: 20px;
+      margin: 15px;
+  }
+
+  h1 {
+      font-size: 28px;
+  }
+
+  h2 {
+      font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team {
+      flex-direction: column;
+  }
+
+  .mission-list {
+      text-align: center;
+  }
+}

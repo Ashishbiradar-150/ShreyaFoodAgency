@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leafy Vegetables Selection 🥬</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Add Button Styles */
+        .add-button {
+            font-size: 14px; /* Further reduced font size */
+            font-weight: bold;
+            color: #2e7d32; /* Dark Green */
+            background-color: #f1f8f4; /* Light Greenish White */
+            border: 2px solid #2e7d32; /* Green Border */
+            border-radius: 8px; /* Slightly smaller border radius */
+            padding: 6px 12px; /* Further reduced padding */
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .add-button:hover {
+            background-color: #2e7d32;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-[#FFFFFF] py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Filter Buttons -->
+            <div class="flex items-center justify-start space-x-4 mb-4">
+                <button class="bg-[#EEEEEE] text-[#222831] py-2 px-4 rounded-full text-sm font-medium hover:bg-[#00ADB5] hover:text-[#FFFFFF] transition-colors duration-200">Leafy Vegetables</button>
+                <button class="bg-[#EEEEEE] text-[#222831] py-2 px-4 rounded-full text-sm font-medium hover:bg-[#00ADB5] hover:text-[#FFFFFF] transition-colors duration-200">Vegetables</button>
+                <button class="bg-[#EEEEEE] text-[#222831] py-2 px-4 rounded-full text-sm font-medium hover:bg-[#00ADB5] hover:text-[#FFFFFF] transition-colors duration-200">Fresh Fruits</button>
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Showing results for "leafy vegetables"</h2>
+
+            <!-- Leafy Vegetables Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6" id="leafy-vegetables-grid">
+                <!-- Baby Spinach (Palak) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Baby Spinach (Palak).png" alt="Baby Spinach (Palak)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Baby Spinach (Palak)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Baby Spinach (Palak)" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banana Leaf (Keli Che Paan) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Banana Leaf (Keli Che Paan).png" alt="Banana Leaf (Keli Che Paan)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Banana Leaf (Keli Che Paan)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">6 pieces</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="6">6 pieces</option>
+                            <option value="12">12 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <button class="add-button" data-name="Banana Leaf (Keli Che Paan)" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Betel Leaves (Vidyachi Paan) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Betel Leaves (Vidyachi Paan).png" alt="Betel Leaves (Vidyachi Paan)" class="w-full h-40 object-cover">
+                        
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Betel Leaves (Vidyachi Paan)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">5 pieces</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="5">5 pieces</option>
+                            <option value="10">10 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Betel Leaves (Vidyachi Paan)" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chenopodium (Chakvat) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Chenopodium (Chakvat).png" alt="Chenopodium (Chakvat)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Chenopodium (Chakvat)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">30</span></p>
+                            </div>
+                            <button class="add-button" data-name="Chenopodium (Chakvat)" data-price="30">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Curry Leaves (Kadhipatta) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Curry Leaves (Kadhipatta).png" alt="Curry Leaves (Kadhipatta)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">15% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Curry Leaves (Kadhipatta)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">10</span></p>
+                            </div>
+                            <button class="add-button" data-name="Curry Leaves (Kadhipatta)" data-price="10">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fenugreek - Pack of 2 (Methi) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Fenugreek - Pack of 2 (Methi).png" alt="Fenugreek - Pack of 2 (Methi)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">10% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Fenugreek - Pack of 2 (Methi)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">30</span></p>
+                            </div>
+                            <button class="add-button" data-name="Fenugreek - Pack of 2 (Methi)" data-price="30">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fresh Rosemary -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Fresh Rosemary.png" alt="Fresh Rosemary" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">20% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Fresh Rosemary</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">25</span></p>
+                            </div>
+                            <button class="add-button" data-name="Fresh Rosemary" data-price="25">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Garlic Chives -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Garlic Chives.png" alt="Garlic Chives" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Garlic Chives</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">35</span></p>
+                            </div>
+                            <button class="add-button" data-name="Garlic Chives" data-price="35">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Giloy Stick (Gulvel Kadi) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Giloy Stick (Gulvel Kadi).png" alt="Giloy Stick (Gulvel Kadi)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Giloy Stick (Gulvel Kadi)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Giloy Stick (Gulvel Kadi)" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Amaranthus Leaves (Tandulsa) (Tandulka) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Green Amaranthus Leaves (Tandulsa) (Tandulka).png" alt="Green Amaranthus Leaves (Tandulsa) (Tandulka)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">15% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Green Amaranthus Leaves (Tandulsa) (Tandulka)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Green Amaranthus Leaves (Tandulsa) (Tandulka)" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Iceberg Lettuce -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Iceberg Lettuce.png" alt="Iceberg Lettuce" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Iceberg Lettuce</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">30</span></p>
+                            </div>
+                            <button class="add-button" data-name="Iceberg Lettuce" data-price="30">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Italian Basil Leaves (Tulshi Paan) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Italian Basil Leaves (Tulshi Paan).png" alt="Italian Basil Leaves (Tulshi Paan)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">10% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Italian Basil Leaves (Tulshi Paan)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Italian Basil Leaves (Tulshi Paan)" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lemongrass (Gavti Cha) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Lemongrass (Gavti Cha).png" alt="Lemongrass (Gavti Cha)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Lemongrass (Gavti Cha)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">35</span></p>
+                            </div>
+                            <button class="add-button" data-name="Lemongrass (Gavti Cha)" data-price="35">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lettuce Box -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Lettuce Box.png" alt="Lettuce Box" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Lettuce Box</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 box</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 box</option>
+                            <option value="2">2 boxes</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <button class="add-button" data-name="Lettuce Box" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Microgreens Mix -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Microgreens Mix.png" alt="Microgreens Mix" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Microgreens Mix</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <button class="add-button" data-name="Microgreens Mix" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neem Sticks (Nimbachi Kadi) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Neem Sticks (Nimbachi Kadi).png" alt="Neem Sticks (Nimbachi Kadi)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Neem Sticks (Nimbachi Kadi)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Neem Sticks (Nimbachi Kadi)" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pak Choi -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Pak Choi.png" alt="Pak Choi" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Pak Choi</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">25</span></p>
+                            </div>
+                            <button class="add-button" data-name="Pak Choi" data-price="25">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rocket Leaves Arugula -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Rocket Leaves  Arugula.png" alt="Rocket Leaves Arugula" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Rocket Leaves Arugula</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Rocket Leaves Arugula" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spinach -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Spinach.png" alt="Spinach" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">30% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Spinach</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">20</span></p>
+                            </div>
+                            <button class="add-button" data-name="Spinach" data-price="20">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spring Onion (Kandychi Path) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden leafy-vegetable-item">
+                    <div class="relative">
+                        <img src="Leafy Vegetables Image's/Spring Onion (Kandychi Path).png" alt="Spring Onion (Kandychi Path)" class="w-full h-40 object-cover">
+                        
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Spring Onion (Kandychi Path)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                            <option value="4">4 pieces</option>
+                            <option value="5">5 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">35</span></p>
+                            </div>
+                            <button class="add-button" data-name="Spring Onion (Kandychi Path)" data-price="35">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Your Cart</h2>
+            <div id="cart-items" class="space-y-4">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="mt-6">
+                <p class="text-lg font-bold text-[#222831]">Total: ₹<span id="cart-total">0</span></p>
+                <button id="pay-button" class="bg-[#00ADB5] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#0097A7] transition-colors duration-200 w-full mt-4">Proceed >></button>
+                <button id="clear-cart" class="bg-[#FF0000] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#CC0000] transition-colors duration-200 w-full mt-2">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button id="cart-toggle" class="fixed top-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#1b5e20] transition-colors duration-200">
+        🛒 <span id="cart-count">0</span>
+    </button>
+
+    <!-- Added to Cart Message -->
+    <div id="added-to-cart-message" class="fixed bottom-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hidden">
+        Added to Cart!
+    </div>
+
+    <script>
+        // Cart Data
+        let cart = [];
+        let cartTotal = 0;
+
+        // Function to update price based on quantity
+        function updatePrice(selectElement) {
+            const priceElement = selectElement.parentElement.querySelector(".dynamic-price");
+            const basePrice = parseFloat(selectElement.closest(".leafy-vegetable-item").querySelector(".add-button").getAttribute("data-price"));
+            const quantity = parseFloat(selectElement.value);
+            const newPrice = (basePrice * quantity).toFixed(2); // Removed division by 1000
+            priceElement.textContent = newPrice;
+        }
+
+        // Function to add item to cart
+        function addToCart(name, price, quantity) {
+            const item = { name, price, quantity };
+            cart.push(item);
+            cartTotal += price * quantity; // Removed division by 1000
+            renderCart();
+            showAddedToCartMessage();
+        }
+
+        // Function to render cart
+        function renderCart() {
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item flex justify-between items-center">
+                    <p class="text-sm text-[#393E46]">${item.name} - ${item.quantity} piece(s) - ₹${(item.price * item.quantity).toFixed(2)}</p>
+                    <button class="remove-item bg-[#FF0000] text-[#FFFFFF] py-1 px-2 rounded-md text-xs font-semibold hover:bg-[#CC0000] transition-colors duration-200" data-name="${item.name}">Remove</button>
+                </div>
+            `).join("");
+            document.getElementById("cart-total").textContent = cartTotal.toFixed(2);
+            document.getElementById("cart-count").textContent = cart.length;
+        }
+
+        // Function to show "Added to Cart" message
+        function showAddedToCartMessage() {
+            const message = document.getElementById("added-to-cart-message");
+            message.classList.remove("hidden");
+            setTimeout(() => message.classList.add("hidden"), 2000);
+        }
+
+        // Event Listeners
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update price on quantity change
+            document.querySelectorAll(".quantity-select").forEach(select => {
+                select.addEventListener("change", () => updatePrice(select));
+            });
+
+            // Add to cart
+            document.querySelectorAll(".add-button").forEach(button => {
+                button.addEventListener("click", () => {
+                    const name = button.getAttribute("data-name");
+                    const price = parseFloat(button.getAttribute("data-price"));
+                    const quantity = parseFloat(button.closest(".leafy-vegetable-item").querySelector(".quantity-select").value);
+                    addToCart(name, price, quantity);
+                });
+            });
+
+            // Toggle cart sidebar
+            document.getElementById("cart-toggle").addEventListener("click", () => {
+                const cartSidebar = document.getElementById("cart-sidebar");
+                cartSidebar.classList.toggle("translate-x-full");
+            });
+
+            // Clear cart
+            document.getElementById("clear-cart").addEventListener("click", () => {
+                cart = [];
+                cartTotal = 0;
+                renderCart();
+            });
+
+            // Remove item from cart
+            document.addEventListener("click", (e) => {
+                if (e.target.classList.contains("remove-item")) {
+                    const name = e.target.getAttribute("data-name");
+                    cart = cart.filter(item => item.name !== name);
+                    renderCart();
+                }
+            });
+
+            // Proceed to Payment Page
+            document.getElementById("pay-button").addEventListener("click", () => {
+                window.location.href = "Address.html"; // Redirect to payment page
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Selection 🥦</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Add Button Styles */
+        .add-button {
+            font-size: 14px; /* Further reduced font size */
+            font-weight: bold;
+            color: #2e7d32; /* Dark Green */
+            background-color: #f1f8f4; /* Light Greenish White */
+            border: 2px solid #2e7d32; /* Green Border */
+            border-radius: 8px; /* Slightly smaller border radius */
+            padding: 6px 12px; /* Further reduced padding */
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .add-button:hover {
+            background-color: #2e7d32;
+            color: white;
+        }
+
+        /* Cart Section Styles */
+        .cart-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .item-details h3 {
+            margin-bottom: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+        }
+
+        .item-details p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: white;
+            color: #0077cc;
+            border: 1px solid #0077cc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .quantity-btn:hover {
+            background: #0077cc;
+            color: white;
+        }
+
+        .quantity-input {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .remove-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 7px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .cart-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .clear-cart, .save-cart, .checkout-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .clear-cart {
+            background: #ff3d3d;
+        }
+
+        .save-cart {
+            background: #0077cc;
+        }
+
+        .checkout-btn {
+            background: #008000; /* Green color */
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-[#FFFFFF] py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Filter Buttons Example</title>
+                <style>
+                    /* Basic styling for the filter buttons */
+                    .filter-buttons {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 1rem;
+                        margin-bottom: 1rem;
+                    }
+                    .filter-buttons button {
+                        background-color: #EEEEEE;
+                        color: #222831;
+                        padding: 0.5rem 1rem;
+                        border-radius: 9999px;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                        border: none;
+                        cursor: pointer;
+                        transition: background-color 0.2s, color 0.2s;
+                    }
+                    .filter-buttons button:hover {
+                        background-color: #00ADB5;
+                        color: #FFFFFF;
+                    }
+            
+                    /* Hide sections by default */
+                    .content-section {
+                        display: none;
+                    }
+                    .content-section.visible {
+                        display: block;
+                    }
+                </style>
+            </head>
+            <body>
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button id="vegetablesBtn">Vegetables</button>
+                    <button id="leafyVegetablesBtn">Leafy Vegetables</button>
+                    <button id="freshFruitsBtn">Fresh Fruits</button>
+                </div>
+            
+                <!-- Content Sections -->
+                <div id="vegetablesSection" class="content-section">
+                    <h2>Vegetables</h2>
+                    <p>This is the Vegetables section.</p>
+                </div>
+                <div id="leafyVegetablesSection" class="content-section">
+                    <h2>Leafy Vegetables</h2>
+                    <p>This is the Leafy Vegetables section.</p>
+                </div>
+                <div id="freshFruitsSection" class="content-section">
+                    <h2>Fresh Fruits</h2>
+                    <p>This is the Fresh Fruits section.</p>
+                </div>
+            
+  
+
+            <!-- Heading -->
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Showing results for "vegetables"</h2>
+
+            <!-- Vegetable Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6" id="vegetable-grid">
+                <!-- Onion -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Onion.png" alt="Onion" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Onion</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">45</span></p>
+                            </div>
+                           
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Onion" data-price="45">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Potato -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Potato.png" alt="Potato" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Potato</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">30</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Potato" data-price="30">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chili -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Chilli.png" alt="Chili" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Chili</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Chili" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ginger -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Ginger.png" alt="Ginger" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Ginger</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">150</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Ginger" data-price="150">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lady Finger -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Lady FInger.png" alt="Lady Finger" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Lady Finger</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Lady Finger" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cucumber -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Cucumber.png" alt="Cucumber" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Cucumber</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Cucumber" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrot -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Carrot.png" alt="Carrot" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Carrot</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Carrot" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cauliflower -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Cauliflower.png" alt="Cauliflower" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Cauliflower</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">45</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Cauliflower" data-price="45">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capsicum -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Capsicum.png" alt="Capsicum" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Capsicum</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">80</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Capsicum" data-price="80">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cabbage -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Cabbage.png" alt="Cabbage" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Cabbage</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">35</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Cabbage" data-price="35">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mushroom -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Mushroom.png" alt="Mushroom" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Mushroom</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">120</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Mushroom" data-price="120">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beetroot -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Beetroot.png" alt="Beetroot" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Beetroot</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Beetroot" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- French Beans -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/French Beans.png" alt="French Beans" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">French Beans</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="French Beans" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Green Peas -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Green Peas.png" alt="Green Peas" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Green Peas</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">90</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Green Peas" data-price="90">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brinjal Bharta -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Brinjal Bharta.png" alt="Brinjal Bharta" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Brinjal Bharta</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Brinjal Bharta" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- White Cucumber -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/White Cucumber.png" alt="White Cucumber" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">White Cucumber</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="White Cucumber" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sweet Potato -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Sweet Potato.png" alt="Sweet Potato" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Sweet Potato</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">55</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Sweet Potato" data-price="55">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drumstick -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Drumstick.png" alt="Drumstick" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Drumstick</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">70</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Drumstick" data-price="70">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cluster Beans -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Cluster Beans.png" alt="Cluster Beans" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Cluster Beans</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">30</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Cluster Beans" data-price="30">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bitter Gourd -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Vegetables Image's/Bitter Gourd.png" alt="Bitter Gourd" class="w-full h-40 object-cover">
+                        <!-- Old Discount Badge -->
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Bitter Gourd</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">35</span></p>
+                            </div>
+                            <!-- New Add Button (Further Reduced Size) -->
+                            <button class="add-button" data-name="Bitter Gourd" data-price="35">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Your Cart</h2>
+            <div id="cart-items" class="space-y-4">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="mt-6">
+                <p class="text-lg font-bold text-[#222831]">Total: ₹<span id="cart-total">0</span></p>
+                <button id="pay-button" class="bg-[#1E5128] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#0097A7] transition-colors duration-200 w-full mt-4">Proceed </button>
+                <button id="clear-cart" class="bg-[#B8621B] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#CC0000] transition-colors duration-200 w-full mt-2">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button id="cart-toggle" class="fixed top-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#1b5e20] transition-colors duration-200">
+        🛒 <span id="cart-count">0</span>
+    </button>
+
+    <!-- Added to Cart Message -->
+    <div id="added-to-cart-message" class="fixed bottom-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hidden">
+        Added to Cart!
+    </div>
+
+    <script>
+        // Cart Data
+        let cart = [];
+        let cartTotal = 0;
+
+        // Function to update price based on quantity
+        function updatePrice(selectElement) {
+            const priceElement = selectElement.parentElement.querySelector(".dynamic-price");
+            const basePrice = parseFloat(selectElement.closest(".vegetable-item").querySelector(".add-button").getAttribute("data-price"));
+            const quantity = parseFloat(selectElement.value);
+            const newPrice = (basePrice * (quantity / 1000)).toFixed(2);
+            priceElement.textContent = newPrice;
+        }
+
+        // Function to add item to cart
+        function addToCart(name, price, quantity) {
+            const item = { name, price, quantity };
+            cart.push(item);
+            cartTotal += price * (quantity / 1000);
+            renderCart();
+            showAddedToCartMessage();
+        }
+
+        // Function to render cart
+        function renderCart() {
+            const cartItems = document.getElementById("cart-items");
+            cartItems.innerHTML = cart.map(item => `
+                <div class="cart-item flex justify-between items-center">
+                    <p class="text-sm text-[#393E46]">${item.name} - ${item.quantity}g - ₹${(item.price * (item.quantity / 1000)).toFixed(2)}</p>
+                    <button class="remove-item bg-[#FF0000] text-[#FFFFFF] py-1 px-2 rounded-md text-xs font-semibold hover:bg-[#CC0000] transition-colors duration-200" data-name="${item.name}">Remove</button>
+                </div>
+            `).join("");
+            document.getElementById("cart-total").textContent = cartTotal.toFixed(2);
+            document.getElementById("cart-count").textContent = cart.length;
+        }
+
+        // Function to show "Added to Cart" message
+        function showAddedToCartMessage() {
+            const message = document.getElementById("added-to-cart-message");
+            message.classList.remove("hidden");
+            setTimeout(() => message.classList.add("hidden"), 2000);
+        }
+
+        // Event Listeners
+        document.addEventListener("DOMContentLoaded", () => {
+            // Update price on quantity change
+            document.querySelectorAll(".quantity-select").forEach(select => {
+                select.addEventListener("change", () => updatePrice(select));
+            });
+
+            // Add to cart
+            document.querySelectorAll(".add-button").forEach(button => {
+                button.addEventListener("click", () => {
+                    const name = button.getAttribute("data-name");
+                    const price = parseFloat(button.getAttribute("data-price"));
+                    const quantity = parseFloat(button.closest(".vegetable-item").querySelector(".quantity-select").value);
+                    addToCart(name, price, quantity);
+                });
+            });
+
+            // Toggle cart sidebar
+            document.getElementById("cart-toggle").addEventListener("click", () => {
+                const cartSidebar = document.getElementById("cart-sidebar");
+                cartSidebar.classList.toggle("translate-x-full");
+            });
+
+            // Clear cart
+            document.getElementById("clear-cart").addEventListener("click", () => {
+                cart = [];
+                cartTotal = 0;
+                renderCart();
+            });
+
+            // Remove item from cart
+            document.addEventListener("click", (e) => {
+                if (e.target.classList.contains("remove-item")) {
+                    const name = e.target.getAttribute("data-name");
+                    cart = cart.filter(item => item.name !== name);
+                    renderCart();
+                }
+            });
+
+            // Proceed to Address Page
+            document.getElementById("pay-button").addEventListener("click", () => {
+                window.location.href = "Address.html"; // Redirect to address page
+            });
+        });
+    </script>
+</body>
+</html>

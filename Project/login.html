@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup Page</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      background: url('Main Page/vegetableforlp.jpg') no-repeat center center/cover; /* Add your image here */
+    }
+
+    /* Blurred Overlay */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2); /* 20% transparent white overlay */
+      backdrop-filter: blur(2px); /* 20% blur effect */
+      z-index: -1;
+    }
+
+    /* Container for Form */
+    .container {
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      backdrop-filter: blur(5px); /* Slight blur for the form */
+    }
+
+    /* Form Toggle Buttons */
+    .form-toggle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .form-toggle button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+
+    .form-toggle button.active {
+      color: #4caf50; /* Fresh green color */
+      border-bottom: 2px solid #4caf50;
+    }
+
+    /* Form Styling */
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form h2 {
+      margin-bottom: 1.5rem;
+      color: #2e7d32; /* Dark green color */
+      font-size: 1.8rem;
+    }
+
+    .form input {
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .form input:focus {
+      border-color: #4caf50; /* Fresh green color */
+    }
+
+    .form button {
+      padding: 0.8rem;
+      background: #4caf50; /* Fresh green color */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form button:hover {
+      background: #388e3c; /* Darker green color */
+    }
+
+    /* Hide Signup Form Initially */
+    .hidden {
+      display: none;
+    }
+
+    /* Additional Styling for Links */
+    .form a {
+      color: #4caf50; /* Fresh green color */
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .form a:hover {
+      color: #388e3c; /* Darker green color */
+    }
+
+    /* Unique Touch: Add a fruit/vegetable icon */
+    .form h2::before {
+      content: "🍏"; /* Apple emoji */
+      margin-right: 0.5rem;
+    }
+
+    .form h2::after {
+      content: ""; /* Carrot emoji */
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="form-toggle">
+        <button id="login-toggle" class="active">Login</button>
+        <button id="signup-toggle">Sign Up</button>
+      </div>
+      <form id="login-form" class="form">
+        <h2>Welcome Back!</h2>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <a href="#">Forgot Password?</a>
+      </form>
+      <form id="signup-form" class="form hidden">
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Sign Up</button>
+        <a href="#">Already have an account? Login</a>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Toggle between Login and Signup Forms
+    const loginToggle = document.getElementById('login-toggle');
+    const signupToggle = document.getElementById('signup-toggle');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
+
+    loginToggle.addEventListener('click', () => {
+      loginForm.classList.remove('hidden');
+      signupForm.classList.add('hidden');
+      loginToggle.classList.add('active');
+      signupToggle.classList.remove('active');
+    });
+
+    signupToggle.addEventListener('click', () => {
+      signupForm.classList.remove('hidden');
+      loginForm.classList.add('hidden');
+      signupToggle.classList.add('active');
+      loginToggle.classList.remove('active');
+    });
+
+    // Redirect to main page after login/signup
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Login successful! Redirecting to the main page...');
+      window.location.href = 'index.html'; // Redirect to main page
+    });
+
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Signup successful! Redirecting to the main page...');
+      window.location.href = 'index.html'; // Redirect to main page
+    });
+  </script>
+</body>
+</html>

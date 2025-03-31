@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fruits Selection 🍎</title>
+    <link rel="stylesheet" href="Fruit_Sec.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-[#FFFFFF] py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button onclick="window.location.href='vegetables.html'">Vegetables</button>
+                <button onclick="window.location.href='leafy.html'">Leafy Vegetables</button>
+                <button class="active" onclick="window.location.href='fruits.html'">Fresh Fruits</button>
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Showing results for "fresh fruits"</h2>
+
+            <!-- Fruits Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 vegetable-grid" id="fruits-grid">
+                <!-- Apple -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Apple.png" alt="Apple" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Apple</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">180</span></p>
+                            </div>
+                            <button class="add-button" data-name="Apple" data-price="180">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avocado -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Avocado.png" alt="Avocado" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Avocado</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">250</span></p>
+                            </div>
+                            <button class="add-button" data-name="Avocado" data-price="250">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banana -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Banana.png" alt="Banana" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Banana</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 dozen</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="12">1 dozen (12)</option>
+                            <option value="6">Half dozen (6)</option>
+                            <option value="24">2 dozen (24)</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <button class="add-button" data-name="Banana" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Black Grapes -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/BlackGrapes.png" alt="Black Grapes" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Black Grapes</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">120</span></p>
+                            </div>
+                            <button class="add-button" data-name="Black Grapes" data-price="120">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coconut -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Coconut.png" alt="Coconut" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Coconut</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <button class="add-button" data-name="Coconut" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corn -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Corn.png" alt="Corn" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Corn</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Corn" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grapes -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Grapes.png" alt="Grapes" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Grapes</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">100</span></p>
+                            </div>
+                            <button class="add-button" data-name="Grapes" data-price="100">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kiwi -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Kivi.png" alt="Kiwi" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Kiwi</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Kiwi" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mango -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Mango.png" alt="Mango" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Mango</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">150</span></p>
+                            </div>
+                            <button class="add-button" data-name="Mango" data-price="150">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Orange -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Mini Orange.png" alt="Mini Orange" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Mini Orange</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">200</span></p>
+                            </div>
+                            <button class="add-button" data-name="Mini Orange" data-price="200">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Muskmelon -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Muskmelon.png" alt="Muskmelon" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Muskmelon</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">70</span></p>
+                            </div>
+                            <button class="add-button" data-name="Muskmelon" data-price="70">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Papaya -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/papai.png" alt="Papaya" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Papaya</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">50</span></p>
+                            </div>
+                            <button class="add-button" data-name="Papaya" data-price="50">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pineapple -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Pineapple.png" alt="Pineapple" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Pineapple</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 piece</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1">1 piece</option>
+                            <option value="2">2 pieces</option>
+                            <option value="3">3 pieces</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">80</span></p>
+                            </div>
+                            <button class="add-button" data-name="Pineapple" data-price="80">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pomegranate -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Pomegranate.png" alt="Pomegranate" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Pomegranate</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">180</span></p>
+                            </div>
+                            <button class="add-button" data-name="Pomegranate" data-price="180">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pumpkin -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Pumpkin.png" alt="Pumpkin" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Pumpkin</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Pumpkin" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sun Melon -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Sun Melon.png" alt="Sun Melon" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Sun Melon</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">60</span></p>
+                            </div>
+                            <button class="add-button" data-name="Sun Melon" data-price="60">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suran (Yam) -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Suran.png" alt="Suran (Yam)" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Suran (Yam)</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">80</span></p>
+                            </div>
+                            <button class="add-button" data-name="Suran (Yam)" data-price="80">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sweet Lime -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Sweet Lime.png" alt="Sweet Lime" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Sweet Lime</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">90</span></p>
+                            </div>
+                            <button class="add-button" data-name="Sweet Lime" data-price="90">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Totapuri Mango -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Totapuri Mango.png" alt="Totapuri Mango" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Totapuri Mango</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">120</span></p>
+                            </div>
+                            <button class="add-button" data-name="Totapuri Mango" data-price="120">ADD</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Watermelon -->
+                <div class="bg-[#FFFFFF] rounded-lg shadow-md overflow-hidden vegetable-item">
+                    <div class="relative">
+                        <img src="Fruits Image's/Watermelon.png" alt="Watermelon" class="w-full h-40 object-cover">
+                        <div class="absolute top-2 left-2 bg-[#87CEEB] text-[#FFFFFF] text-xs font-bold px-2 py-1 rounded-md">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-md font-semibold text-[#222831] mb-2">Watermelon</h3>
+                        <p class="text-sm text-[#393E46] mb-2">1 kg</p>
+                        <select class="quantity-select w-full p-2 border rounded-md mb-2">
+                            <option value="1000">1kg</option>
+                            <option value="500">500 g</option>
+                            <option value="250">250 g</option>
+                        </select>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-lg font-bold text-[#222831]">₹<span class="dynamic-price">40</span></p>
+                            </div>
+                            <button class="add-button" data-name="Watermelon" data-price="40">ADD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 cart-sidebar">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-[#222831] mb-6">Your Cart</h2>
+            <div id="cart-items" class="space-y-4">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="mt-6">
+                <p class="text-lg font-bold text-[#222831]">Total: ₹<span id="cart-total">0</span></p>
+                <button id="pay-button" class="bg-[#1E5128] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#0097A7] transition-colors duration-200 w-full mt-4">Proceed </button>
+                <button id="clear-cart" class="bg-[#B8621B] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#CC0000] transition-colors duration-200 w-full mt-2">Clear Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button id="cart-toggle" class="fixed top-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hover:bg-[#1b5e20] transition-colors duration-200">
+        🛒 <span id="cart-count">0</span>
+    </button>
+
+    <!-- Added to Cart Message -->
+    <div id="added-to-cart-message" class="fixed bottom-4 right-4 bg-[#2e7d32] text-[#FFFFFF] py-2 px-4 rounded-md text-sm font-semibold hidden">
+        Added to Cart!
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Fruit_Sec.js"></script>
+</body>
+</html>

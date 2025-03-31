@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shop - Shreya Food Agency</title>
+  <link rel="stylesheet" href="Shop.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Logo" class="brand-icon">
+        <span class="brand-name">Shreya Food Agency</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About Us.html">About Us</a></li>
+        <li><a href="Contact Us.html">Contact Us</a></li>
+        <li class="cart-icon">🛒</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Shop Page -->
+  <section class="shop-page">
+    <h2>Shop by Category</h2>
+    <div class="category-grid">
+      <!-- Vegetables Section -->
+      <div class="category-section">
+        <h3>Vegetables</h3>
+        <div class="category-card" onclick="navigateTo('vegetables.html')">
+          <img src="Main Page/Vegetables .jpg" alt="Vegetables">
+        </div>
+      </div>
+
+      <!-- Leafy Vegetables Section -->
+      <div class="category-section">
+        <h3>Leafy Vegetables</h3>
+        <div class="category-card" onclick="navigateTo('leafy.html')">
+          <img src="Main Page/Leafy Vegetables .png" alt="Leafy Vegetables">
+        </div>
+      </div>
+
+      <!-- Fruits Section -->
+      <div class="category-section">
+        <h3>Fruits</h3>
+        <div class="category-card" onclick="navigateTo('fruits.html')">
+          <img src="Main Page/Fruits .jpg" alt="Fruits">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function navigateTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

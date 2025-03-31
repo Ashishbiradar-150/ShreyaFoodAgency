@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Shreya Food Agency</title>
+    <!-- Add Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .thank-you-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .truck-image {
+            width: 150px;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #008000;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            width: 100%;
+            padding: 12px;
+            background: #006400;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <marquee><img src="Main Page/19144.jpg" alt="Delivery Truck" class="truck-image"></marquee>
+        <h1>Thank You for Your Purchase!</h1>
+        <p>Your order has been successfully placed with <strong>Shreya Food Agency</strong>.</p>
+        <input type="text" id="customer-name" placeholder="Enter customer name" required>
+        <input type="tel" id="phone-number" placeholder="Enter phone number" required>
+        <button class="whatsapp-btn" onclick="sendWhatsAppInvoice()">
+            Send Invoice
+        </button>
+    </div>
+
+    <script>
+        function sendWhatsAppInvoice() {
+            let customerName = document.getElementById("customer-name").value.trim();
+            let phoneNumber = document.getElementById("phone-number").value.trim();
+            if (!customerName || !phoneNumber) {
+                alert("Please enter both customer name and phone number.");
+                return;
+            }
+
+            // Retrieve cart data from local storage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let totalAmount = 0;
+            let productList = "";
+
+            cart.forEach(item => {
+                let itemTotal = (item.price * (item.quantity / 1000)).toFixed(2);
+                totalAmount += parseFloat(itemTotal);
+                productList += `- ${item.name} (${item.quantity}g) - ₹${itemTotal} %0A`;
+            });
+
+            let message = `Hi ${customerName}, %0A%0A`
+                + `🛒 *Order Details:* %0A`
+                + `- Company: Shreya Food Agency %0A`
+                + `- Product List: %0A${productList}`
+                + `- Total Amount: ₹${totalAmount.toFixed(2)} %0A%0A`
+                + `Let me know if you have any questions. %0A`
+                + `Thank you for the order! %0A`
+                + `Visit Again! %0A%0A`
+                + `*[Shreya Food Agency]*`;
+            
+            let whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
